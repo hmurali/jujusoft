@@ -40,3 +40,21 @@ console.log("process json coming in: ", pData);
 console.log("service json coming in", sData);
 console.log("processes filtered", processesFiltered);
 console.log("services json Filtered: ", servicesFiltered);
+
+Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
+
+function getData() {
+    let data = [];
+  
+    data.push({
+      title: 'Processes',
+      data: processesFiltered
+    });
+  
+    data.push({
+      title: 'Services',
+      data: servicesFiltered
+    });
+
+    return data;
+}
