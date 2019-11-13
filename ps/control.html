@@ -1,31 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+​
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    ​
+    <style>
+        * {
+            background: #404040;
+            color: greenyellow;
+        
+        }
+    </style>
+    ​
 </head>
-<body>
-    
-    <button id="process" onclick="getProcess" >Get-Process</button>
-    <button id="restart" onclick="restartPc">Restart-Computer</button>
+​
 
+<body>
+    ​
+    <button id="process">Get-Process</button>
+    <button id="restart">Restart-Computer</button>
+    <br>
+    <div id="output"></div>
+    <br>
+    <textarea id="command-to-send" type="text" value="">ls | select-object -first 3 | convertto-html</textarea>
+    ​
+    <button id="send-command">send command</button>
+    ​
+    <script src="./node_modules/socket.io-client/dist/socket.io.js"></script>
+    ​
     <script>
+        console.log('haha')
+        
+        let format
+        const baseUrl = 'http://localhost:3000'
+        const socket = io(baseUrl)
+        console.log(socket)
+        socket.on('commandStream', event => {
+            const output = document.getElementById('output')
+            console.log(format)
+            if (format === 'html') {
+                output.innerHTML = event
+            } else if (format === 'json') {
+                output.innerText = JSON.stringify(JSON.parse(event), undefined, 2)
+
+            } else {
+                output.innerText = event
+            }
+
+        })
+        
         function getProcess() {
             console.log('getting process')
-            fetch('http://192.168.43.40:3000/get-process')
+            fetch(`${baseUrl}/get-process`)
         }
         function restartPc() {
             console.log('restarting computer')
-            fetch('http://192.168.43.40:3000/turn-off')
+            fetch(`${baseUrl}/turn-off`)
         }
+
+        function sendCommand() {
+            const commandElem = document.getElementById('command-to-send')
+            const command = commandElem.value
+            if (command.toLowerCase().includes('convertto-html')) { format = 'html' }
+            if (command.toLowerCase().includes('convertto-json')) { format = 'json' }
+            console.log(command)
+            fetch(`${baseUrl}/command?command=${command}`)
+                // fetch(`${baseUrl}/command`, {
+                //     method: 'POST',
+                //     body: JSON.stringify({ command })
+                // })
+                // .then(res => res.json())
+                .then(poshRes => {
+                    console.log(poshRes)
+                })
+
+        }
+
 
         document.getElementById('process').addEventListener('click', getProcess)
         document.getElementById('restart').addEventListener('click', restartPc)
+        document.getElementById('send-command').addEventListener('click', sendCommand)
 
 
     </script>
+    ​
+    <script>
 
+        // let format
+        // const baseUrl = 'http://localhost:3000'
+        // const socket = io(baseUrl)
+        // socket.on('commandStream', event => {
+        //     const output = document.getElementById('output')
+        //     console.log(format)
+        //     if (format === 'html') {
+        //         output.innerHTML = event
+        //     } else if (format === 'json') {
+        //         output.innerText = JSON.stringify(JSON.parse(event), undefined, 2)
+
+        //     } else {
+        //         output.innerText = event
+        //     }
+
+        // })
+
+        // function getProcess() {
+        //     console.log('getting process')
+        //     fetch(`${baseUrl}/get-process`)
+        // }
+        // function restartPc() {
+        //     console.log('restarting computer')
+        //     fetch(`${baseUrl}/turn-off`)
+        // }
+        // function sendCommand() {
+        //     const commandElem = document.getElementById('command-to-send')
+        //     const command = commandElem.value
+        //     if (command.toLowerCase().includes('convertto-html')) { format = 'html' }
+        //     if (command.toLowerCase().includes('convertto-json')) { format = 'json' }
+        //     console.log(command)
+        //     fetch(`${baseUrl}/command?command=${command}`)
+        //         // fetch(`${baseUrl}/command`, {
+        //         //     method: 'POST',
+        //         //     body: JSON.stringify({ command })
+        //         // })
+        //         // .then(res => res.json())
+        //         .then(poshRes => {
+        //             console.log(poshRes)
+        //         })
+
+        // }
+
+
+        // document.getElementById('process').addEventListener('click', getProcess)
+        // document.getElementById('restart').addEventListener('click', restartPc)
+        // document.getElementById('send-command').addEventListener('click', sendCommand)
+
+
+    </script>
+    ​
 </body>
+​
+
 </html>
