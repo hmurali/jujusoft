@@ -5,12 +5,14 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http)
 const cors = require('cors')
 const { run } = require('./ps')
+const apiroutes = require('./api.routes')
 
 let socket
 
 // app.use(bodyParser.json())
 app.use(express.json())
 app.use(cors())
+app.use(apiroutes)
 
 app.get('/', function (req, res) {
     res.send('<h1>Hello world</h1>');
