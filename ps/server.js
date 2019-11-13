@@ -1,21 +1,62 @@
-const app = require('express')();
-const bodyParser = require('body-parser')
+const express = require('express');
+const app = express();
+// const bodyParser = require('body-parser')
 const http = require('http').createServer(app);
 const io = require('socket.io')(http)
-const run = require('./ps')
-const mongoose = require('mongoose')
-const react = require('react')
+const cors = require('cors')
+const { run } = require('./ps')
 
 let socket
 
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
+app.use(express.json())
+app.use(cors())
 
 app.get('/', function (req, res) {
     res.send('<h1>Hello world</h1>');
 });
 
+app.route('/users')
+    .get()
+    .post()
+app.route('/users/:userid')
+    .get()
+    .put()
+    .delete()
+
+app.route('/computer')
+    .get()
+    .post()
+app.route('/computer/:computerid')
+    .get()
+    .put()
+    .delete()
+
+
+
+
+// agent
+
 app.post('/process', function (req, res) {
     console.log(req.body)
+    res.json({ success: true, message: 'great' });
+});
+
+
+app.post('/command', function (req, res) {
+    console.log('req', req)
+    console.log('req.body', req.body)
+    const { command } = req.body
+    console.log('command', command)
+    socket.emit('command', command)
+    res.json({ success: true, message: 'great' });
+});
+
+app.get('/command', function (req, res) {
+    console.log('req.query', req.query)
+    const { command } = req.query
+    // console.log('command', command)
+    socket.emit('command', command)
     res.json({ success: true, message: 'great' });
 });
 
@@ -32,11 +73,17 @@ app.get('/get-process', function (req, res) {
 });
 
 
+const broadcastStream = socket =>
+    event => {
+        console.log(event)
+        socket.broadcast.emit('commandStream', event)
+    }
 
 io.on('connection', function (sck) {
     socket = sck
     console.log('a user connected');
     socket.on('disconnect', () => console.log('user disconnected'))
+    socket.on('commandStream', broadcastStream(socket))
 });
 
 http.listen(3000, function () {
