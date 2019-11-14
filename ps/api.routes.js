@@ -1,11 +1,14 @@
 const router = require("express").Router();
 
+const userservice = {
+    list: function (req, res){
+        console.log('get /users')
+        res.json({})
+      }
+}
 //Routes
 router.route('/users')
-    .get (function (req, res){
-      console.log('get /users')
-      res.json({})
-    })
+    .get (userservice.list)
     .post (function (req, res){
         const body = req.body
         console.log (body)
@@ -14,7 +17,7 @@ router.route('/users')
     })
 
 router.route('/users/:userid')
-    .get (function (req, res){
+    .get(function (req, res){
        console.log('get /users/:userid', req.params.userid)
        res.json({})
     })
