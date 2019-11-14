@@ -4,17 +4,20 @@ const userservice = {
     list: function (req, res){
         console.log('get /users')
         res.json({})
-      }
-}
-//Routes
-router.route('/users')
-    .get (userservice.list)
-    .post (function (req, res){
+      },
+      create: function (req, res){
         const body = req.body
         console.log (body)
       console.log('get /users')
       res.json({body})
-    })
+    },
+
+}
+
+//Routes
+router.route('/users')
+    .get (userservice.list)
+    .post (userservice.create)
 
 router.route('/users/:userid')
     .get(function (req, res){
