@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-//Userservice
+//UserService
 const userservice = {
     list: function (req, res) {
         console.log('get /users')
@@ -28,6 +28,7 @@ const userservice = {
     },
 }
 
+// ComputerService
 const computerservice = {
     list: function (req, res) {
         console.log('get /computer')
