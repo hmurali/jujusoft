@@ -100,6 +100,19 @@ class App extends React.Component {
           }}
           data={this.state.data}
         />
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Show Me:
+          <select value={this.state.value} onChange={this.handleChange}>
+
+              <option value='CPU'>CPU</option>
+              <option value='Handles'>Handles</option>
+              <option value='VM'>Virtual Memory</option>
+              <option value='PM'>Physical Memory</option>
+            </select>
+          </label>
+          <input type='submit' value='Submit' />
+        </form>
 
 
 
