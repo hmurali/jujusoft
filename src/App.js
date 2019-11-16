@@ -76,6 +76,17 @@ class App extends React.Component {
 
   }
 
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    //alert("You chose: " + this.state.value);
+    this.aggregateBy(this.state.value, pData);
+    //this.aggregateBy(names, values);
+    event.preventDefault();
+  }
+
 
 
 }
