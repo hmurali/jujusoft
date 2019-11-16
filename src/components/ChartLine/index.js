@@ -94,6 +94,19 @@ export default class ChartLine extends Component {
                     }}
                     data={this.state.data}
                 />
+                <form>
+                    <label>
+                        View:
+                <select onChange={this.handleChange}>
+
+                            <option value='CPU'>CPU</option>
+                            <option value='Handles'>Handles</option>
+                            <option value='VM'>Virtual Memory</option>
+                            <option value='PM'>Physical Memory</option>
+                        </select>
+                    </label>
+                    <input type='submit' value='Submit' />
+                </form>
 
 
             </div>
