@@ -107,17 +107,13 @@ export default class ChartLine extends Component {
                     </label>
                     <input type='submit' value='Submit' />
                 </form>
-
-
+                <p>
+                    CPU(s): The amount of processor time that the process has used on all processors, in seconds.<br /><br />
+                    Handles: The number of handles that the process has opened. <br /><br />
+                    VM(M): The amount of virtual memory that the process is using, in megabytes. Virtual memory includes storage in the paging files on disk.<br /><br />
+                    PM(K): The amount of pageable memory that the process is using, in kilobytes.<br /><br />
+                </p>
             </div>
-
-
         );
     }
-
-
-
-
-
-
 }
