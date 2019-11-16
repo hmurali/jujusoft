@@ -1,10 +1,7 @@
 import React from "react";
-//import logo from "./logo.svg";
 import "./App.css";
-
 import Chart from 'chart.js';
-import { Line } from 'react-chartjs-2';
-
+import ChartLine from './components/ChartLine'
 import processData from './processData.json';
 
 const pData = processData;
