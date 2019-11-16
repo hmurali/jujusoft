@@ -42,8 +42,10 @@ function aggregateBy(field, data) {
   return { names, values }
 }
 
-
-
+//hard-coding field name here need this.state.value to be an parameter for this function
+const { names, values } = aggregateBy("VM", pData);
+console.log("names is: ", names);
+console.log("values is: ", values);
 
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
