@@ -84,6 +84,24 @@ export default class ChartLine extends Component {
         })
     }
 
+    render() {
+        return (
+            <div>
+                <h3>Chart Samples</h3>
+                <Line
+                    options={{
+                        responsive: true
+                    }}
+                    data={this.state.data}
+                />
+
+
+            </div>
+
+
+        );
+    }
+
 
 
 
