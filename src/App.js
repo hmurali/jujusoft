@@ -49,18 +49,13 @@ console.log("values is: ", values);
 
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
-function getData() {
-  let data = [];
+class App extends React.Component {
 
-  data.push({
-    title: 'Processes',
-    data: processesFiltered
-  });
 
-  data.push({
-    title: 'Services',
-    data: servicesFiltered
-  });
 
-  return data;
 }
+
+export default App;
+
+
+
