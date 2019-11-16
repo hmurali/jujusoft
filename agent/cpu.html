@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            background: #222;
+            color: greenyellow;
+        }
+
+        #command-to-send {
+            width: 100vh;
+        }
+
+    </style>
+
+</head>
+
+
+</html> -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Control</title>
+
+
+
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <body><img src="/img/logo4 (2).jpg" alt="HTML5 Icon" style="width:300px;height:50px;">    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Processes
+          </a>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/processes">Processes and Performance</a>
+          <a class="dropdown-item" href="/cpu">CPU</a>
+          <a class="dropdown-item" href="/memory">Memory</a>
+          <a class="dropdown-item" href="/wifi">WiFi</a>
+          <a class="dropdown-item" href="/gpu">GPU</a>
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              WiFi and Network Data
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/dns">DNS History</a>
+                <a class="dropdown-item" href="/network">Current Network</a>
+             
+      
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Start or Stop Common Processes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/chrome">Chrome</a>
+            <a class="dropdown-item" href="/vscode">Visual Studio Code</a>
+            <a class="dropdown-item" href="/slack">Slack</a>
+            <a class="dropdown-item" href="/control">Custom Script</a>
+
+        
+
+            <div class="dropdown-divider"></div> 
+             <a class="dropdown-item" href="/restart">Restart Computer</a>
+            <a class="dropdown-item" href="/network">Network</a>
+
+       
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Device 
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/devices">View, Add or Delete Devices</a>
+                                <a class="dropdown-item" href="/home">Home</a>
+
+            
+          </div>
+        </li>
+    
+      </ul>
+      
+    </div>
+  </nav>
+    <title>CPU</title>
+    
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">CPU</h1>
+        <!-- <a href="/home">   -->
+          <img src="/img/cpulogo.png" alt="HTML5 Icon" style="width:150px;height:150px;">
+</a>
+        <p class="lead">View CPU Information</p>
+        <body>
+
+            
+            <br>
+            <div id="output"></div>
+            <br>
+            <textarea id="command-to-send" type="text" value="">ipconfig</textarea>
+            <br>
+        
+            <button id="send-command">send command</button>
+        
+            <script src="./node_modules/socket.io-client/dist/socket.io.js"></script>
+            <script src="./control.js"></script>
+        
+      </div>
+    </div>
+   
+  </head>
+
+  <footer id="sticky-footer" class="py-4 bg-light text-blue-50">
+    <div class="container text-center">
+      <small>Copyright 2019 &copy; Jujusoft</small>
