@@ -81,17 +81,31 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    //alert("You chose: " + this.state.value);
+    //alert("You cho0se: " + this.state.value);
     this.aggregateBy(this.state.value, pData);
     //this.aggregateBy(names, values);
     event.preventDefault();
   }
 
+  render() {
+    // const pData = require("./processData.json");
+    // console.log("pData is ", pData);
+
+    return (
+      <div style={{ position: 'relative', width: 600, height: 550 }}>
+        <h3>Chart Samples</h3>
+        <Line
+          options={{
+            responsive: true
+          }}
+          data={this.state.data}
+        />
 
 
-}
 
-export default App;
-
-
-
+        }
+        
+        export default App;
+        
+        
+        
