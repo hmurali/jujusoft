@@ -7,46 +7,43 @@ import { Line } from 'react-chartjs-2';
 
 import processData from './processData.json';
 
-//import serviceData from './serviceData.json';
-
-const pData = processData; //array
-//const sData = serviceData; //array - 268 results
-
+const pData = processData;
 console.log("process json: ", pData);
-//console.log("service json: ", sData);
 
-const pData = processData; //object
-const sData = serviceData; //array - 268 results
-
-//Data cleaning
-//delete null values from pData DOES NOT DELETE NULL VALUES!!
-function delet(obj) {
-  console.log("obj is", obj);
-  //console.log("obj.BasePriority is", obj.BasePriority);
-  for (let prop in obj) {
-    console.log("prop: ", prop);
-    console.log("prop value: ", obj[prop]);
-    if (obj.prop === null || obj.prop === undefined) {
-      delete obj.prop;
+/**
+ *
+ *
+ * @param {string} field
+ * @param {Array} data
+ */
+function aggregateBy(field, data) {
+  const filteredData = data.filter(p => p[field])
+  const map = new Map()
+  filteredData.forEach(process => {
+    if (!map.get(process.Name)) {
+      map.set(process.Name, process[field])
+      return
     }
-  }
-  return obj;
+    const prev = map.get(process.Name)
+    const newVal = prev + process[field]
+    map.set(process.Name, newVal)
+
+    // console.log(process)
+    // console.log(process.Name, newVal)
+  })
+
+  const names = []
+  const values = []
+  map.forEach((val, key) => {
+    names.push(key)
+    values.push(val)
+  })
+
+  return { names, values }
 }
 
-const processesFiltered = delet(pData);
 
-// const array_pData = Object.keys(pData).map(i => pData[i]);
-// console.log("pData object is now ", array_pData);
 
-//filter sData for services that can be shut down - 43 results
-const servicesFiltered = sData.filter(function (item) {
-  return item.CanShutdown === true;
-})
-
-console.log("process json coming in: ", pData);
-console.log("service json coming in", sData);
-console.log("processes filtered", processesFiltered);
-console.log("services json Filtered: ", servicesFiltered);
 
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
