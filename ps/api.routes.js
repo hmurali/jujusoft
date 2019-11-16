@@ -50,7 +50,7 @@ const computerservice = {
         console.log('put /computer/:computerid')
         res.json({ body })
     },
-    delete:function (req, res) {
+    delete: function (req, res) {
         console.log('delete /computer/:computerid')
         res.json({})
     },
@@ -58,12 +58,130 @@ const computerservice = {
 
 //Routes
 router.route('/users')
+    /**
+     * 
+     * @api {Get} /Users ListUsers
+     * @apiName ListUsers
+     * @apiGroup Users
+     * @apiVersion  0.1.0
+     * 
+     * @apiParam  {String} paramName description
+     * 
+     * @apiSuccess (200) {type} name description
+     * 
+     * @apiParamExample  {type} Request-Example:
+     * {
+     *     property : value
+     * }
+     * 
+     * 
+     * @apiSuccessExample {type} Success-Response:
+     * {
+     *     property : value
+     * }
+     * 
+     */
     .get(userservice.list)
+    /**
+     * 
+     * @api {Post} /Users CreateUsers
+     * @apiName CreateUsers
+     * @apiGroup Users
+     * @apiVersion  0.1.0
+     * 
+     * 
+     * @apiParam  {String} paramName description
+     * 
+     * @apiSuccess (200) {type} name description
+     * 
+     * @apiParamExample  {type} Request-Example:
+     * {
+     *     property : value
+     * }
+     * 
+     * 
+     * @apiSuccessExample {type} Success-Response:
+     * {
+     *     property : value
+     * }
+     * 
+     * 
+     */
     .post(userservice.create)
 
 router.route('/users/:userid')
+    /**
+     * 
+     * @api {Get} /Users/:Userid ReadUser
+     * @apiName ReadUser
+     * @apiGroup Users
+     * @apiVersion  0.1.0
+     * 
+     * @apiParam  {String} paramName description
+     * 
+     * @apiSuccess (200) {type} name description
+     * 
+     * @apiParamExample  {type} Request-Example:
+     * {
+     *     property : value
+     * }
+     * 
+     * 
+     * @apiSuccessExample {type} Success-Response:
+     * {
+     *     property : value
+     * }
+     * 
+     */
     .get(userservice.read)
+    /**
+     * 
+     * @api {Put} /Users/:Userid UpdateUser
+     * @apiName UpdateUser
+     * @apiGroup Users
+     * @apiVersion  0.1.0
+     * 
+     * @apiParam  {String} paramName description
+     * 
+     * @apiSuccess (200) {type} name description
+     * 
+     * @apiParamExample  {type} Request-Example:
+     * {
+     *     property : value
+     * }
+     * 
+     * 
+     * @apiSuccessExample {type} Success-Response:
+     * {
+     *     property : value
+     * }
+     * 
+     */
     .put(userservice.update)
+
+    /**
+     * 
+     * @api {Delete} /Users/:Userid DeleteUser
+     * @apiName DeleteUser
+     * @apiGroup Users
+     * @apiVersion  0.1.0
+     * 
+     * @apiParam  {String} paramName description
+     * 
+     * @apiSuccess (200) {type} name description
+     * 
+     * @apiParamExample  {type} Request-Example:
+     * {
+     *     property : value
+     * }
+     * 
+     * 
+     * @apiSuccessExample {type} Success-Response:
+     * {
+     *     property : value
+     * }
+     * 
+     */
     .delete(userservice.delete)
 
 router.route('/computer')

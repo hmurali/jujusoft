@@ -4,7 +4,8 @@
   "description": "",
   "main": "ps.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/*.test.js",
+    "apidocs": "apidoc -f routes.js -o apidoc/",
     "start": "node server.js"
   },
   "author": "",
@@ -15,5 +16,11 @@
     "express": "^4.17.1",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "apidoc": "^0.18.0",
+    "axios": "^0.19.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
   }
 }
