@@ -50,6 +50,31 @@ console.log("values is: ", values);
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: "CPU",
+      data: {
+
+        labels: names,
+        datasets: [
+
+          {
+            label: "Processes",
+            backgroundColor: "rgba(0, 255, 0, 0.75)",
+            data: values
+          }
+        ]
+
+      }
+    }
+
+    //this.aggregateBy = this.aggregateBy.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
 
 
 
