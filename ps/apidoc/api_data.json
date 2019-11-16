@@ -1,6 +1,256 @@
 [
   {
     "type": "Post",
+    "url": "/computer",
+    "title": "CreateComputer",
+    "name": "CreateComputer",
+    "group": "Computer",
+    "version": "0.1.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramName",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "type",
+            "optional": false,
+            "field": "name",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "filename": "./api.routes.js",
+    "groupTitle": "Computer"
+  },
+  {
+    "type": "Delete",
+    "url": "/computer/:computerid",
+    "title": "DeleteComputer",
+    "name": "DeleteComputer",
+    "group": "Computer",
+    "version": "0.1.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramName",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "type",
+            "optional": false,
+            "field": "name",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "filename": "./api.routes.js",
+    "groupTitle": "Computer"
+  },
+  {
+    "type": "Get",
+    "url": "/computer",
+    "title": "ListComputers",
+    "name": "ListComputers",
+    "group": "Computer",
+    "version": "0.1.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramName",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "type",
+            "optional": false,
+            "field": "name",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "filename": "./api.routes.js",
+    "groupTitle": "Computer"
+  },
+  {
+    "type": "Get",
+    "url": "/computer/:computerid",
+    "title": "ReadComputer",
+    "name": "ReadComputer",
+    "group": "Computer",
+    "version": "0.1.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramName",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "type",
+            "optional": false,
+            "field": "name",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "filename": "./api.routes.js",
+    "groupTitle": "Computer"
+  },
+  {
+    "type": "Put",
+    "url": "/computer/:computerid",
+    "title": "UpdateComputer",
+    "name": "UpdateComputer",
+    "group": "Computer",
+    "version": "0.1.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramName",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "type",
+            "optional": false,
+            "field": "name",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "filename": "./api.routes.js",
+    "groupTitle": "Computer"
+  },
+  {
+    "type": "Post",
     "url": "/users",
     "title": "CreateUsers",
     "name": "CreateUsers",
