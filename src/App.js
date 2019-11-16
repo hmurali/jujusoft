@@ -5,7 +5,8 @@ import ChartLine from './components/ChartLine'
 import processData from './processData.json';
 
 const pData = processData;
-console.log("process json: ", pData);
+
+Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
 /**
  *
