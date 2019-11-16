@@ -105,7 +105,6 @@ export default class ChartLine extends Component {
                             <option value='PM'>Physical Memory</option>
                         </select>
                     </label>
-                    <input type='submit' value='Submit' />
                 </form>
                 <p>
                     CPU(s): The amount of processor time that the process has used on all processors, in seconds.<br /><br />
