@@ -60,7 +60,7 @@ const computerservice = {
 router.route('/users')
     /**
      * 
-     * @api {Get} /Users ListUsers
+     * @api {Get} /users ListUsers
      * @apiName ListUsers
      * @apiGroup Users
      * @apiVersion  0.1.0
@@ -84,7 +84,7 @@ router.route('/users')
     .get(userservice.list)
     /**
      * 
-     * @api {Post} /Users CreateUsers
+     * @api {Post} /users CreateUsers
      * @apiName CreateUsers
      * @apiGroup Users
      * @apiVersion  0.1.0
@@ -112,7 +112,7 @@ router.route('/users')
 router.route('/users/:userid')
     /**
      * 
-     * @api {Get} /Users/:Userid ReadUser
+     * @api {Get} /users/:Userid ReadUser
      * @apiName ReadUser
      * @apiGroup Users
      * @apiVersion  0.1.0
@@ -136,7 +136,7 @@ router.route('/users/:userid')
     .get(userservice.read)
     /**
      * 
-     * @api {Put} /Users/:Userid UpdateUser
+     * @api {Put} /users/:Userid UpdateUser
      * @apiName UpdateUser
      * @apiGroup Users
      * @apiVersion  0.1.0
@@ -161,7 +161,7 @@ router.route('/users/:userid')
 
     /**
      * 
-     * @api {Delete} /Users/:Userid DeleteUser
+     * @api {Delete} /users/:Userid DeleteUser
      * @apiName DeleteUser
      * @apiGroup Users
      * @apiVersion  0.1.0

@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "Post",
-    "url": "/Users",
+    "url": "/users",
     "title": "CreateUsers",
     "name": "CreateUsers",
     "group": "Users",
@@ -51,7 +51,7 @@ define({ "api": [
   },
   {
     "type": "Delete",
-    "url": "/Users/:Userid",
+    "url": "/users/:Userid",
     "title": "DeleteUser",
     "name": "DeleteUser",
     "group": "Users",
@@ -101,7 +101,7 @@ define({ "api": [
   },
   {
     "type": "Get",
-    "url": "/Users",
+    "url": "/users",
     "title": "ListUsers",
     "name": "ListUsers",
     "group": "Users",
@@ -151,7 +151,7 @@ define({ "api": [
   },
   {
     "type": "Get",
-    "url": "/Users/:Userid",
+    "url": "/users/:Userid",
     "title": "ReadUser",
     "name": "ReadUser",
     "group": "Users",
@@ -201,7 +201,7 @@ define({ "api": [
   },
   {
     "type": "Put",
-    "url": "/Users/:Userid",
+    "url": "/users/:Userid",
     "title": "UpdateUser",
     "name": "UpdateUser",
     "group": "Users",
