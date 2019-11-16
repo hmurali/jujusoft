@@ -66,6 +66,24 @@ export default class ChartLine extends Component {
 
     }
 
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+
+        const { names, values } = this.aggregateBy(this.state.value, pData);
+        this.names = names;
+        this.values = values;
+        this.setState({
+            data: {
+                labels: this.names,
+                datasets: [{
+                    label: "Processes",
+                    backgroundColor: "rgba(0, 255, 0, 0.75)",
+                    data: this.values,
+                }]
+            }
+        })
+    }
+
 
 
 
