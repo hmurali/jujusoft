@@ -33,6 +33,39 @@ export default class ChartLine extends Component {
 
     }
 
+    /**
+     *
+     *
+     * @param {string} field
+     * @param {Array} data
+     */
+    aggregateBy(field, data) {
+        const filteredData = data.filter(p => p[field])
+        const map = new Map()
+        filteredData.forEach(process => {
+            if (!map.get(process.Name)) {
+                map.set(process.Name, process[field])
+                return
+            }
+            const prev = map.get(process.Name)
+            const newVal = prev + process[field]
+            map.set(process.Name, newVal)
+        })
+
+        const names = []
+        const values = []
+        map.forEach((val, key) => {
+            names.push(key)
+            values.push(val)
+        })
+
+        console.log("names are: ", names);
+        console.log("values are: ", values);
+
+        return { names, values }
+
+    }
+
 
 
 
