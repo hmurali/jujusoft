@@ -1,27 +1,25 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 import Chart from 'chart.js';
-import ChartLine from './components/ChartLine'
+import ChartLine from './components/ChartLine';
+import Footer from './components/Footer';
+import Jumbotron from './components/Jumbotron';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import processData from './processData.json';
 
 const pData = processData;
 
-Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
+Chart.defaults.global.defaultFontFamily = 'Roboto, sans-serif';
 
 class App extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-  constructor(props) {
-    super(props);
-
-  }
-
-  render() {
-
-    return (
-      <ChartLine />
-    )
-  }
+	render() {
+		return <ChartLine />;
+	}
 }
 
 export default App;
-
