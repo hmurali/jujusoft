@@ -33,9 +33,10 @@ const userservice = {
         res.json({body})
     },
     delete: function (req, res) {
-        User.deleteOne({_id:req.params._id})
-        .then(res => {
-            res.json(res)
+        console.log('hahaha', req.params.userid)
+        User.deleteOne({_id:req.params.userid})
+        .then(response => {
+            res.json(response)
         })
     },
 }

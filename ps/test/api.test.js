@@ -3,11 +3,15 @@ const axios = require('axios')
 const baseUrl = 'http://localhost:3000'
 
 
+let userid = ""
+
 
 describe('/users', () => {
     it('post/users should return an object', done => {
-        axios.post(`${baseUrl}/users`)
+        const user = {email: 'user@example.com', password: '1234'}
+        axios.post(`${baseUrl}/users`, user)
             .then(res => {
+                userid = res.data._id
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
             })
@@ -21,25 +25,22 @@ describe('/users', () => {
     })
 
     it('get/users/:userid should return an object', done => {
-        const userId = 12345
-        axios.get(`${baseUrl}/users/${userId}`)
+        axios.get(`${baseUrl}/users/${userid}`)
             .then(res => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
             })
     })
 
-    it('get/users/:userid should return an object', done => {
-        const userId = 12345
-        axios.put(`${baseUrl}/users/${userId}`)
+    it('put/users/:userid should return an object', done => {
+        axios.put(`${baseUrl}/users/${userid}`)
             .then(res => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
             })
     })
-    it('get/users/:userid should return an object', done => {
-        const userId = 12345
-        axios.delete(`${baseUrl}/users/${userId}`)
+    it('delete/users/:userid should return an object', done => {
+        axios.delete(`${baseUrl}/users/${userid}`)
             .then(res => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
@@ -90,6 +91,7 @@ describe('/computer', () => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
             })
+            .catch(err => console.error(err))
     })
 
 }) 

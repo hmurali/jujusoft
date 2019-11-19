@@ -31,9 +31,9 @@ const computerservice = {
         res.json({ body })
     },
     delete: function (req, res) {
-        Computer.deleteOne({ _id: req.params._id })
-            .then(res => {
-                res.json(res)
+        Computer.deleteOne({ _id: req.params.computerid })
+            .then(response => {
+                res.json(response)
             })
     },
 }
