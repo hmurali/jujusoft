@@ -5,15 +5,15 @@ const baseUrl = 'http://localhost:3000'
 
 
 describe('/users', () => {
-    it('get/users should return an object', done => {
-        axios.get(`${baseUrl}/users`)
+    it('post/users should return an object', done => {
+        axios.post(`${baseUrl}/users`)
             .then(res => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
             })
     })
-    it('post/users should return an object', done => {
-        axios.post(`${baseUrl}/users`)
+    it('get/users should return an object', done => {
+        axios.get(`${baseUrl}/users`)
             .then(res => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
@@ -47,23 +47,31 @@ describe('/users', () => {
     })
 })
 
+const newComputer = {
+    ip: '192.168.1.23',
+    name: 'a fake computer'
+}
+
 describe('/computer', () => {
-    it('get/computer should return an object', done => {
-        axios.get(`${baseUrl}/computer`)
-            .then(res => {
-                expect(res.data).to.be.an.instanceOf(Object)
-                done()
-            })
-    })
     it('post/computer should return an object', done => {
-        axios.post(`${baseUrl}/computer`)
+        axios.post(`${baseUrl}/computer`, newComputer)
             .then(res => {
+                newComputer._id = res.data._id
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
             })
     })
     it('get/computer/:computerid should return an object', done => {
-        axios.get(`${baseUrl}/computer/67576576`)
+        axios.get(`${baseUrl}/computer/${newComputer._id}`)
+        .then(res => {
+                expect(res.data).to.be.an.instanceOf(Object)
+                expect(res.data).to.haveOwnProperty('ip').eq(newComputer.ip)
+                expect(res.data).to.haveOwnProperty('name').eq(newComputer.name)
+                done()
+            })
+    })
+    it('get/computer should return an object', done => {
+        axios.get(`${baseUrl}/computer`)
             .then(res => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()
@@ -77,7 +85,7 @@ describe('/computer', () => {
             })
     })
     it('delete/computer/:computerid should return an object', done => {
-        axios.delete(`${baseUrl}/computer/jhgjhghjid`)
+        axios.delete(`${baseUrl}/computer/${newComputer._id}`)
             .then(res => {
                 expect(res.data).to.be.an.instanceOf(Object)
                 done()

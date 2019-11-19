@@ -1,13 +1,22 @@
 const express = require('express');
 const app = express();
+const mongoose = require("mongoose");
 // const bodyParser = require('body-parser')
 const http = require('http').createServer(app);
+
+
 const io = require('socket.io')(http)
 const cors = require('cors')
 const { run } = require('./ps')
 const apiroutes = require('./api.routes')
 
 let socket
+
+const PORT = process.env.PORT || 3000;
+
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/juju");
 
 // app.use(bodyParser.json())
 app.use(express.json())
@@ -69,6 +78,6 @@ io.on('connection', function (sck) {
     socket.on('commandStream', broadcastStream(socket))
 });
 
-http.listen(3000, function () {
-    console.log('listening on *:3000');
+http.listen(PORT, function () {
+    console.log(`listening on *:${PORT}`);
 });
