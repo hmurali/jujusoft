@@ -5,75 +5,18 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http)
 const cors = require('cors')
 const { run } = require('./ps')
+const apiroutes = require('./api.routes')
 
 let socket
 
 // app.use(bodyParser.json())
 app.use(express.json())
 app.use(cors())
+app.use(apiroutes)
 
 app.get('/', function (req, res) {
     res.send('<h1>Hello world</h1>');
 });
-
-app.route('/users')
-    .get (function (req, res){
-      console.log('get /users')
-      res.json({})
-    })
-    .post (function (req, res){
-        const body = req.body
-        console.log (body)
-      console.log('get /users')
-      res.json({body})
-    })
-
-app.route('/users/:userid')
-    .get (function (req, res){
-       console.log('get /users/:userid', req.params.userid)
-       res.json({})
-    })
-    .put (function (req, res){
-        const body = req.body
-        console.log (body)
-       console.log('put /users/:userid', req.params.userid)
-       res.json({body})
-    })
-    .delete (function (req, res){
-        console.log('delete /users/:userid', req.params.userid)
-        res.json({})
-    })
-
-app.route('/computer')
-    .get (function (req, res){
-        console.log('get /computer')
-        res.json({})
-    })
-    .post (function (req, res){
-        const body = req.body
-        console.log (body)
-        console.log('post /computer')
-        res.json({body})
-    })
-
-app.route('/computer/:computerid')
-    .get (function (req, res){
-        console.log('get /computer/:computerid')
-        res.json({})
-    })
-    .put (function (req, res){
-        const body = req.body
-        console.log (body)
-        console.log('put /computer/:computerid')
-        res.json({body})
-    })
-    .delete (function (req, res){
-        console.log('delete /computer/:computerid')
-        res.json({})
-    })
-
-
-
 
 // agent
 
