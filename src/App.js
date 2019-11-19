@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Computer from "C:/Users/augte/Documents/jujusoft/models/computer";
+import React from "react";
+import "./App.css";
+import Chart from 'chart.js';
+import ChartLine from './components/ChartLine'
+import processData from './processData.json';
 
-class App extends Component {
+const pData = processData;
+
+Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+  }
+
   render() {
+
     return (
-      <div className="App">
-        <Computer></Computer>
-      </div>
-    );
+      <ChartLine />
+    )
   }
 }
 
