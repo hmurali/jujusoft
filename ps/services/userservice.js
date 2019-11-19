@@ -1,29 +1,42 @@
+const User = require('../models/user')
+
 
 //UserService
 const userservice = {
     list: function (req, res) {
-        console.log('get /users')
         res.json({})
     },
     create: function (req, res) {
         const body = req.body
-        console.log(body)
-        console.log('get /users')
-        res.json({ body })
+        const user = new User
+        (req.body)
+        user.save()
+            .then(savedUser => {
+                res.json(savedUser)
+            })
+            .catch(err => {
+                res.send(err)
+            })
     },
     read: function (req, res) {
-        console.log('get /users/:userid', req.params.userid)
-        res.json({})
+        User.findOne({_id:
+        req.params.userid })
+            .then(user => {
+                res.json(user)
+            }) 
+            .catch(err => {
+                res.send(err)
+            })
     },
     update: function (req, res) {
         const body = req.body
-        console.log(body)
-        console.log('put /users/:userid', req.params.userid)
-        res.json({ body })
+        res.json({body})
     },
     delete: function (req, res) {
-        console.log('delete /users/:userid', req.params.userid)
-        res.json({})
+        User.deleteOne({_id:req.params._id})
+        .then(res => {
+            res.json(res)
+        })
     },
 }
 
