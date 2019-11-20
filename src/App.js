@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
 import { Switch, Route } from 'react-router-dom';
 import Overview from './components/Overview';
+import Login from './components/Login';
 
 // const baseUrl = 'http://172.20.10.2:3000'
 const baseUrl = 'http://localhost:3001';
@@ -212,6 +213,11 @@ class App extends React.Component {
 					</button>
 				</nav>
 				<Jumbotron />
+				<Switch>
+					<Route path="/" component={Overview} exact />
+					<Route path="/signup" component={Signup} />
+					<Route path="login" component={Login} />
+				</Switch>
 
 				<PowerShell selectedComputers={this.state.computerNames} />
 				<hr />
