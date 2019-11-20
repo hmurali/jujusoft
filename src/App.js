@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
 import { Switch, Route } from 'react-router-dom';
 import Overview from './components/Overview';
+import Signup from './components/SignUp';
 import Login from './components/Login';
 
 // const baseUrl = 'http://172.20.10.2:3000'
