@@ -1,21 +1,76 @@
 import React from 'react';
 import './App.css';
 import Chart from 'chart.js';
+import * as io from 'socket.io-client';
+
 import ChartLine from './components/ChartLine';
+import PowerShell from './components/PowerShell';
+
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
-import processData from './processData.json';
-
-const pData = processData;
+// const baseUrl = 'http://172.20.10.2:3000'
+const baseUrl = 'http://localhost:3001';
 
 Chart.defaults.global.defaultFontFamily = 'Roboto, sans-serif';
 
 class App extends React.Component {
+	state = {
+		powerShellResponse: '',
+		computerNames: [],
+		computers: []
+	};
+
 	constructor(props) {
 		super(props);
+
+		this.computers = [];
+		this.selectedComputers = new Set();
+
+		this.socket = io(baseUrl);
+		this.socket.on('commandStream', (event) => {
+			let res;
+			try {
+				res = JSON.parse(event);
+			} catch (err) {
+				console.warn(err);
+				res = event;
+			}
+
+			this.setState({ powerShellResponse: res });
+		});
+
+		this.socket.on('computer:loggedIn', (computer) => {
+			console.log('computer', computer);
+			const found = this.computers.find((comp) => comp.name === computer.name);
+			if (!found) {
+				this.computers.push(computer);
+			}
+			this.setState({ computers: this.computers });
+		});
+
+		this.socket.on('computer:disconnected', (computer) => {
+			console.info('computer connected', computer);
+			// this.
+		});
 	}
+
+	computerChecked = (event) => {
+		const { checked, id, value } = event.target;
+		console.log(checked);
+		console.log(value);
+		console.log(id);
+		if (checked) {
+			this.selectedComputers.add(id);
+		} else {
+			this.selectedComputers.has(id) && this.selectedComputers.delete(id);
+		}
+
+		console.log(this.selectedComputers);
+		this.setState({ computerNames: Array.from(this.selectedComputers) });
+
+		// this.selectedComputers.add()
+	};
 
 	render() {
 		return (
@@ -155,10 +210,26 @@ class App extends React.Component {
 					</button>
 				</nav>
 				<Jumbotron />
-				<ChartLine />
+
+				<PowerShell selectedComputers={this.state.computerNames} />
+				<hr />
+
+				<div>
+					<ul className="flex-row">
+						{this.state.computers.map((comp) => (
+							<li>
+								<input type="checkbox" id={comp.name} value={comp.ip} onChange={this.computerChecked} />
+								<label htmlFor={comp.name}>{comp.name}</label>
+							</li>
+						))}
+					</ul>
+
+					<ChartLine data={this.state.powerShellResponse} />
+				</div>
 
 				{/* <WhateverReactUseAsRouter /> */}
 
+				<textarea value={JSON.stringify(this.state.powerShellResponse, undefined, 2)} rows={50} />
 				<Footer />
 			</div>
 		);
