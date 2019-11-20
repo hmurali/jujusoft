@@ -216,7 +216,7 @@ class App extends React.Component {
 				<Switch>
 					<Route path="/" component={Overview} exact />
 					<Route path="/signup" component={Signup} />
-					<Route path="login" component={Login} />
+					<Route path="/login" component={Login} />
 				</Switch>
 
 				<PowerShell selectedComputers={this.state.computerNames} />
