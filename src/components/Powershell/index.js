@@ -1,5 +1,7 @@
 import React from 'react';
-import * as io from 'socket.io-client';
+//import React from './node_modules/react';
+//import * as io from 'socket.io-client';
+//import * as axios from './node_modules/axios';
 import * as axios from 'axios';
 
 const baseUrl = 'http://localhost:3001';
@@ -42,7 +44,6 @@ class PowerShell extends React.Component {
 				<textarea id="command-to-send" type="text" onChange={this.onChange}>
 					{this.state.command}
 				</textarea>
-				{/* <textarea id="command-to-send" type="text" value={this.state.command}></textarea> */}
 				<button id="send-command" onClick={this.sendCommand}>
 					send command
 				</button>
