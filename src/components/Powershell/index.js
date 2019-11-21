@@ -6,6 +6,9 @@ import * as axios from 'axios';
 
 const baseUrl = 'http://localhost:3001';
 
+// const commandMap = 
+
+
 class PowerShell extends React.Component {
 	state = {
 		command:
@@ -21,6 +24,7 @@ class PowerShell extends React.Component {
 	sendCommand = () => {
 		console.log(this.state.command);
 		console.log(this.props.selectedComputers);
+		console.log('this.props.command', this.props.command);
 		if (this.state.command.toLowerCase().includes('convertto-html')) {
 			this.setState({ format: 'html' });
 		}
@@ -41,9 +45,8 @@ class PowerShell extends React.Component {
 	render() {
 		return (
 			<section>
-				<textarea id="command-to-send" type="text" onChange={this.onChange}>
-					{this.state.command}
-				</textarea>
+				<textarea id="command-to-send" type="text" onChange={this.onChange} value={this.props.command || this.state.command}/>
+					
 				<button id="send-command" onClick={this.sendCommand}>
 					send command
 				</button>
