@@ -8,7 +8,9 @@ let userid = ""
 
 describe('/users', () => {
     it('post/users should return an object', done => {
-        const user = {email: 'user@example.com', password: '1234'}
+        const user = {
+            email: 'user@example.com', password: '1234'
+        }
         axios.post(`${baseUrl}/users`, user)
             .then(res => {
                 userid = res.data._id

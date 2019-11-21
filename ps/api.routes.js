@@ -6,7 +6,7 @@ const computerservice = require("./services/computerservice")
 //Routes
 router.route('/users')
     /**
-     * 
+     * Get All Users
      * @api {Get} /users ListUsers
      * @apiName ListUsers
      * @apiGroup Users
@@ -17,20 +17,20 @@ router.route('/users')
      * @apiSuccess (200) {type} name description
      * 
      * @apiParamExample  {type} Request-Example:
-     * {
-     *     property : value
-     * }
+     * {}
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
-     * {
-     *     property : value
-     * }
+     * [{
+     *     email: 'example@email.com',
+     *     password: '******',
+     *     _id: ''
+     * }]
      * 
      */
     .get(userservice.list)
     /**
-     * 
+     * Creating New Users
      * @api {Post} /users CreateUsers
      * @apiName CreateUsers
      * @apiGroup Users
@@ -43,13 +43,16 @@ router.route('/users')
      * 
      * @apiParamExample  {type} Request-Example:
      * {
-     *     property : value
+     *     email: 'example@email.com',
+     *     password: '******'
      * }
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
      * {
-     *     property : value
+     *     email: 'example@email.com',
+     *     password: '******',
+     *     _id: ''
      * }
      * 
      * 
@@ -58,7 +61,7 @@ router.route('/users')
 
 router.route('/users/:userid')
     /**
-     * 
+     * Endpoint Gets a New User
      * @api {Get} /users/:Userid ReadUser
      * @apiName ReadUser
      * @apiGroup Users
@@ -70,19 +73,21 @@ router.route('/users/:userid')
      * 
      * @apiParamExample  {type} Request-Example:
      * {
-     *     property : value
+     *     _id : ''
      * }
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
      * {
-     *     property : value
+     *     email: 'example@email.com',
+     *     password: '******',
+     *     _id: ''
      * }
      * 
      */
     .get(userservice.read)
     /**
-     * 
+     * Put Userid
      * @api {Put} /users/:Userid UpdateUser
      * @apiName UpdateUser
      * @apiGroup Users
@@ -94,20 +99,24 @@ router.route('/users/:userid')
      * 
      * @apiParamExample  {type} Request-Example:
      * {
-     *     property : value
+     *     email: 'example@email.com',
+     *     password: '******',
+     *     _id: ''
      * }
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
      * {
-     *     property : value
+     *     email: 'example@email.com',
+     *     password: '******',
+     *     _id: ''
      * }
      * 
      */
     .put(userservice.update)
 
     /**
-     * 
+     * Delete User
      * @api {Delete} /users/:Userid DeleteUser
      * @apiName DeleteUser
      * @apiGroup Users
@@ -119,14 +128,13 @@ router.route('/users/:userid')
      * 
      * @apiParamExample  {type} Request-Example:
      * {
-     *     property : value
+     *     _id: ''
      * }
-     * 
      * 
      * @apiSuccessExample {type} Success-Response:
-     * {
-     *     property : value
-     * }
+     * {}
+     * 
+     * 
      * 
      */
     .delete(userservice.delete)
@@ -134,7 +142,7 @@ router.route('/users/:userid')
 router.route('/computer')
 
     /**
-         * 
+         * List All Registered Computers
          * @api {Get} /computer ListComputers
          * @apiName ListComputers
          * @apiGroup Computer
@@ -145,21 +153,23 @@ router.route('/computer')
          * @apiSuccess (200) {type} name description
          * 
          * @apiParamExample  {type} Request-Example:
-         * {
-         *     property : value
-         * }
+         * {}
+         *     
+         * 
          * 
          * 
          * @apiSuccessExample {type} Success-Response:
-         * {
-         *     property : value
-         * }
+         * [{
+         *     ip: '192.168.1.42',
+         *     name: 'office',
+         *     _id: ''
+         * }]
          * 
          */
     .get(computerservice.list)
 
     /**
-     * 
+     * Get All Computer Service
      * @api {Post} /computer CreateComputer
      * @apiName CreateComputer
      * @apiGroup Computer
@@ -171,13 +181,16 @@ router.route('/computer')
      * 
      * @apiParamExample  {type} Request-Example:
      * {
-     *     property : value
+     *     ip: '192.168.1.42',
+     *     name: 'office'
      * }
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
      * {
-     *     property : value
+     *     ip: '192.168.1.42',
+     *     name: 'office',
+     *     _id: ''
      * }
      * 
      */
@@ -186,7 +199,7 @@ router.route('/computer')
 router.route('/computer/:computerid')
 
     /**
-         * 
+         * Get All Computerid
          * @api {Get} /computer/:computerid ReadComputer
          * @apiName ReadComputer
          * @apiGroup Computer
@@ -198,20 +211,22 @@ router.route('/computer/:computerid')
          * 
          * @apiParamExample  {type} Request-Example:
          * {
-         *     property : value
+         *     _id : ''
          * }
          * 
          * 
          * @apiSuccessExample {type} Success-Response:
          * {
-         *     property : value
+         *     ip: '192.168.1.42',
+         *     name: 'office',
+         *     _id: ''
          * }
          * 
          */
     .get(computerservice.read)
 
     /**
-     * 
+     * Update All Computerid
      * @api {Put} /computer/:computerid UpdateComputer
      * @apiName UpdateComputer
      * @apiGroup Computer
@@ -223,20 +238,24 @@ router.route('/computer/:computerid')
      * 
      * @apiParamExample  {type} Request-Example:
      * {
-     *     property : value
-     * }
+         *     ip: '192.168.1.42',
+         *     name: 'office',
+         *     _id: ''
+         * }
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
      * {
-     *     property : value
-     * }
+         *     ip: '192.168.1.42',
+         *     name: 'office',
+         *     _id: ''
+         * }
      * 
      */
     .put(computerservice.update)
 
     /**
-     * 
+     * Delete Computerid
      * @api {Delete} /computer/:computerid DeleteComputer
      * @apiName DeleteComputer
      * @apiGroup Computer
@@ -248,14 +267,12 @@ router.route('/computer/:computerid')
      * 
      * @apiParamExample  {type} Request-Example:
      * {
-     *     property : value
+     *     _id: ''
      * }
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
-     * {
-     *     property : value
-     * }
+     * { }
      * 
      */
     .delete(computerservice.delete)

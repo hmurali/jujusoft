@@ -21,7 +21,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    ip: '192.168.1.42',\n    name: 'office'\n}",
           "type": "type"
         }
       ]
@@ -41,7 +41,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    ip: '192.168.1.42',\n    name: 'office',\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -71,7 +71,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -91,7 +91,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{ }",
           "type": "type"
         }
       ]
@@ -121,7 +121,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{}",
           "type": "type"
         }
       ]
@@ -141,7 +141,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "[{\n    ip: '192.168.1.42',\n    name: 'office',\n    _id: ''\n}]",
           "type": "type"
         }
       ]
@@ -171,7 +171,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    _id : ''\n}",
           "type": "type"
         }
       ]
@@ -191,7 +191,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    ip: '192.168.1.42',\n    name: 'office',\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -221,7 +221,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    ip: '192.168.1.42',\n    name: 'office',\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -241,7 +241,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    ip: '192.168.1.42',\n    name: 'office',\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -271,7 +271,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    email: 'example@email.com',\n    password: '******'\n}",
           "type": "type"
         }
       ]
@@ -291,7 +291,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    email: 'example@email.com',\n    password: '******',\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -321,7 +321,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -341,7 +341,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{}",
           "type": "type"
         }
       ]
@@ -371,7 +371,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{}",
           "type": "type"
         }
       ]
@@ -391,7 +391,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "[{\n    email: 'example@email.com',\n    password: '******',\n    _id: ''\n}]",
           "type": "type"
         }
       ]
@@ -421,7 +421,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    _id : ''\n}",
           "type": "type"
         }
       ]
@@ -441,7 +441,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    email: 'example@email.com',\n    password: '******',\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -471,7 +471,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    email: 'example@email.com',\n    password: '******',\n    _id: ''\n}",
           "type": "type"
         }
       ]
@@ -491,7 +491,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    property : value\n}",
+          "content": "{\n    email: 'example@email.com',\n    password: '******',\n    _id: ''\n}",
           "type": "type"
         }
       ]
