@@ -3,39 +3,19 @@ import './App.css';
 import Chart from 'chart.js';
 import * as io from 'socket.io-client';
 
-import ChartLine from './components/ChartLine';
-
-//import PowerShell from './components/Powershell/index';
-import PowerShell from './components/PowerShell';
+//import ChartLine from './components/ChartLine';
+//import PowerShell from './components/PowerShell';
 
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Overview from './components/Overview';
-import Results from './components/Results';
 import Signup from './components/SignUp';
 import Login from './components/Login';
+//import Results from './components/Results';
 
 // const baseUrl = 'http://172.20.10.2:3000'
 const baseUrl = 'http://localhost:3001';
-const commandMap = {
-
-	'get-process':
-		'Get-Process | Sort-Object -Descending CPU | Select-Object -First 40 -Property Id, Handles, Handle, Name, Description, CPU, NPM, PM, SI, VM, WS, Size, Path | ConvertTo-Json -Compress',
-	'get-memory': 'Get-WmiObject -class "Win32_PhysicalMemoryArray"',
-	'get-cpu': 'Get-WmiObject -Class Win32_Processor | Select-Object -Property Name, Number',
-	'get-wifi': 'ipconfig',
-	'get-gpu': 'foreach($gpu in Get-WmiObject Win32_VideoController) {Write-Host $gpu.Description}',
-	'get-dns': 'ipconfig /displaydns',
-	'get-network': 'Get-NetIPConfiguration',
-	'get-chrome': 'Start-Process "chrome.exe" "www.bootcampspot.com',
-	'get-vscode': 'Start-Process "code"',
-	'get-slack': 'Start-Process "slack"',
-	'get-custom': null,
-	'get-restart': 'Computer-Restart',
-	'get-network': 'ipconfig',
-	'get-device': 'get-localuser'
-};
 
 Chart.defaults.global.defaultFontFamily = 'Roboto, sans-serif';
 
@@ -43,8 +23,7 @@ class App extends React.Component {
 	state = {
 		powerShellResponse: '',
 		computerNames: [],
-		computers: [],
-		command: ''
+		computers: []
 	};
 
 	constructor(props) {
@@ -98,13 +77,6 @@ class App extends React.Component {
 		// this.selectedComputers.add()
 	};
 
-	handleCommandChange = (event) => {
-		const key = event.target.dataset.command;
-		const command = commandMap[key];
-		console.log(command);
-		this.setState({ command: command });
-	};
-
 	render() {
 		return (
 			<div className="App">
@@ -138,47 +110,21 @@ class App extends React.Component {
 									Processes
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
-									<span
-										className="dropdown-item"
-										data-command="get-process"
-										onClick={this.handleCommandChange}
-									>
+									<a className="dropdown-item" href="signup.html">
 										Processes and Performance
-									</span>
-									{/* <a className="dropdown-item" href="signup.html"> */}
-									<span
-										className="dropdown-item"
-										data-command="get-cpu"
-										onClick={this.handleCommandChange}
-									>
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										CPU
-									</span>
-									{/* <a className="dropdown-item" href="signup.html"> */}
-									<span
-										className="dropdown-item"
-										data-command="get-memory"
-										onClick={this.handleCommandChange}
-									>
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										Memory
-									</span>
-									{/* <a className="dropdown-item" href="signup.html"> */}
-									<span
-										className="dropdown-item"
-										data-command="get-wifi"
-										onClick={this.handleCommandChange}
-									>
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										WiFi
-									</span>
-									{/* <a className="dropdown-item" href="signup.html"> */}
-									<span
-										className="dropdown-item"
-										data-command="get-gpu"
-										onClick={this.handleCommandChange}
-									>
-
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										GPU
-									</span>
+									</a>
 								</div>
 							</li>
 							<li className="nav-item dropdown">
@@ -194,24 +140,12 @@ class App extends React.Component {
 									WiFi and Network Data
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
-									<span
-										className="dropdown-item"
-										data-command="get-dns"
-										onClick={this.handleCommandChange}
-									>
+									<a className="dropdown-item" href="signup.html">
 										DNS History
-									</span>
-
-									{/* <a className="dropdown-item" href="signup.html"> */}
-									<span
-										className="dropdown-item"
-										data-command="get-network"
-										onClick={this.handleCommandChange}
-									>
-
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										Current Network
-									</span>
+									</a>
 								</div>
 							</li>
 
@@ -228,56 +162,26 @@ class App extends React.Component {
 									Start or Stop Common Processes
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
-									<span
-										className="dropdown-item"
-										data-command="get-chrome"
-										onClick={this.handleCommandChange}
-									>
+									<a className="dropdown-item" href="signup.html">
 										Chrome
-									</span>
-									{/* <a className="dropdown-item" href="signup.html"> */}
-									<span
-										className="dropdown-item"
-										data-command="get-vscode"
-										onClick={this.handleCommandChange}
-									>
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										Visual Studio Code
-									</span>
-
-									<span
-										className="dropdown-item"
-										data-command="get-slack"
-										onClick={this.handleCommandChange}
-									>
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										Slack
-									</span>
-
-									<span
-										className="dropdown-item"
-										data-command="get-custom"
-										onClick={this.handleCommandChange}
-									>
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										Custom Script
-									</span>
+									</a>
 
 									<div className="dropdown-divider" />
-
-									<span
-										className="dropdown-item"
-										data-command="get-restart"
-										onClick={this.handleCommandChange}
-									>
-										Restart
-									</span>
-									<span
-										className="dropdown-item"
-										data-command="get-network"
-										onClick={this.handleCommandChange}
-									>
+									<a className="dropdown-item" href="signup.html">
+										Restart Computer
+									</a>
+									<a className="dropdown-item" href="signup.html">
 										Network
-									</span>
-
+									</a>
 								</div>
 							</li>
 
@@ -294,17 +198,9 @@ class App extends React.Component {
 									Device
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-									{/* <a className="dropdown-item" href="signup.html">
-								 */}
-
-									<span
-										className="dropdown-item"
-										data-command="get-device"
-										onClick={this.handleCommandChange}
-									>
+									<a className="dropdown-item" href="signup.html">
 										View, Add or Delete Devices
-									</span>
-
+									</a>
 									{/*
                         <!-- <a className="dropdown-item" href="signup.html">Home</a> --> */}
 								</div>
@@ -312,7 +208,7 @@ class App extends React.Component {
 						</ul>
 					</div>
 					<button type="button" className="btn btn-outline-secondary">
-						<Link to="/signup">Sign Up</Link>
+						Sign Up
 					</button>
 					<button type="button" className="btn btn-outline-secondary">
 						Login
@@ -320,38 +216,33 @@ class App extends React.Component {
 				</nav>
 				<Jumbotron />
 				<Switch>
-
 					<Route path="/" component={Overview} exact />
-					<Route path="/results" component={Results} exact>
-						<PowerShell selectedComputers={this.state.computerNames} command={this.state.command} />
-						<hr />
+					<Route path="/signup" component={Signup} />
+					<Route path="/login" component={Login} />
+					{/* Route and Route --put Brady <powershell> part from his branch inside here */}
 
-						<div>
-							<ul className="flex-row">
-								{this.state.computers.map((comp) => (
-									<li>
-										<input
-											type="checkbox"
-											id={comp.name}
-											value={comp.ip}
-											onChange={this.computerChecked}
-										/>
-										<label htmlFor={comp.name}>{comp.name}</label>
-									</li>
-								))}
-							</ul>
-
-							<ChartLine data={this.state.powerShellResponse} />
-						</div>
-
-						<textarea value={JSON.stringify(this.state.powerShellResponse, undefined, 2)} rows={50} />
-					</Route>
-					<Route path="/signup" component={Signup} exact />
-
-					<Route path="/login" component={Login} exact />
-
+					{/* <Route path="/results" component={Results} /> */}
 				</Switch>
 
+				{/* <PowerShell selectedComputers={this.state.computerNames} /> */}
+				{/* <hr /> */}
+
+				{/* <div>
+					<ul className="flex-row">
+						{this.state.computers.map((comp) => (
+							<li>
+								<input type="checkbox" id={comp.name} value={comp.ip} onChange={this.computerChecked} />
+								<label htmlFor={comp.name}>{comp.name}</label>
+							</li>
+						))}
+					</ul>
+
+					<ChartLine data={this.state.powerShellResponse} />
+				</div> */}
+
+				{/* <WhateverReactUseAsRouter /> */}
+
+				{/* <textarea value={JSON.stringify(this.state.powerShellResponse, undefined, 2)} rows={50} /> */}
 				<Footer />
 			</div>
 		);
