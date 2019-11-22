@@ -4,8 +4,9 @@ import Chart from 'chart.js';
 import * as io from 'socket.io-client';
 
 import ChartLine from './components/ChartLine';
-//import PowerShell from './components/Powershell/index';
-import PowerShell from './components/PowerShell';
+
+import PowerShell from './components/Powershell/index';
+//import PowerShell from './components/PowerShell';
 
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
@@ -18,6 +19,7 @@ import Login from './components/Login';
 // const baseUrl = 'http://172.20.10.2:3000'
 const baseUrl = 'http://localhost:3001';
 const commandMap = {
+
 	'get-process':
 		'Get-Process | Sort-Object -Descending CPU | Select-Object -First 40 -Property Id, Handles, Handle, Name, Description, CPU, NPM, PM, SI, VM, WS, Size, Path | ConvertTo-Json -Compress',
 	'get-memory': 'Get-WmiObject -class "Win32_PhysicalMemoryArray"',
@@ -95,6 +97,7 @@ class App extends React.Component {
 
 		// this.selectedComputers.add()
 	};
+
 	handleCommandChange = (event) => {
 		const key = event.target.dataset.command;
 		const command = commandMap[key];
@@ -135,6 +138,7 @@ class App extends React.Component {
 									Processes
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+
 									<span
 										className="dropdown-item"
 										data-command="get-process"
@@ -172,6 +176,7 @@ class App extends React.Component {
 										data-command="get-gpu"
 										onClick={this.handleCommandChange}
 									>
+
 										GPU
 									</span>
 								</div>
@@ -189,6 +194,7 @@ class App extends React.Component {
 									WiFi and Network Data
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+
 									<span
 										className="dropdown-item"
 										data-command="get-dns"
@@ -203,6 +209,7 @@ class App extends React.Component {
 										data-command="get-network"
 										onClick={this.handleCommandChange}
 									>
+
 										Current Network
 									</span>
 								</div>
@@ -221,6 +228,7 @@ class App extends React.Component {
 									Start or Stop Common Processes
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+
 									<span
 										className="dropdown-item"
 										data-command="get-chrome"
@@ -269,6 +277,7 @@ class App extends React.Component {
 									>
 										Network
 									</span>
+
 								</div>
 							</li>
 
@@ -287,6 +296,7 @@ class App extends React.Component {
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
 									{/* <a className="dropdown-item" href="signup.html">
 								 */}
+
 									<span
 										className="dropdown-item"
 										data-command="get-device"
@@ -294,6 +304,7 @@ class App extends React.Component {
 									>
 										View, Add or Delete Devices
 									</span>
+
 									{/*
                         <!-- <a className="dropdown-item" href="signup.html">Home</a> --> */}
 								</div>
@@ -314,6 +325,7 @@ class App extends React.Component {
 				</nav>
 				<Jumbotron />
 				<Switch>
+
 					<Route path="/" component={Overview} exact />
 					<Route path="/results" component={Results} exact>
 						<PowerShell selectedComputers={this.state.computerNames} command={this.state.command} />
@@ -342,6 +354,7 @@ class App extends React.Component {
 					<Route path="/signup" component={Signup} exact />
 
 					<Route path="/login" component={Login} exact />
+
 				</Switch>
 
 				<Footer />
