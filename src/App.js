@@ -288,7 +288,7 @@ class App extends React.Component {
 							<ChartLine data={this.state.powerShellResponse} />
 						</div>
 
-						<textarea value={JSON.stringify(this.state.powerShellResponse, undefined, 2)} rows={50} />
+						<textarea value={JSON.stringify(this.state.powerShellResponse, undefined, 2)} rows={5} />
 
 					</Route>
 					<Route path="/signup" component={Signup} >
