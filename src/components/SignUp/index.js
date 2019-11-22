@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function Signup() {
 	return (
@@ -6,7 +7,11 @@ export default function Signup() {
 			<div className="container_text">
 				<h4> Sign Up </h4>
 				<small className="text-muted">
-					Returning User? <a href="login.html">Login</a>
+					{/* Returning User? <a href="/login">Login</a> */}
+					Returning User? {' '}
+					<NavLink style={{ textDecoration: 'none', color: '#0258AF' }} to="/login">
+						Login
+					</NavLink>
 				</small>
 			</div>
 			<br />
