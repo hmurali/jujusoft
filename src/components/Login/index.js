@@ -40,7 +40,9 @@ export default function Login() {
 				</div>
 
 				<button type="submit" className="btn btn-primary">
-					Submit
+					<NavLink style={{ textDecoration: 'none', color: '#fff' }} to="/results">
+						Submit
+					</NavLink>
 				</button>
 			</form>
 		</div>

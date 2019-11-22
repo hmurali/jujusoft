@@ -62,7 +62,9 @@ export default function Signup() {
 				</div>
 
 				<button type="submit" className="btn btn-primary">
-					Submit
+					<NavLink style={{ textDecoration: 'none', color: '#fff' }} to="/results">
+						Submit
+					</NavLink>
 				</button>
 			</form>
 			{/* 
