@@ -5,8 +5,8 @@ import * as io from 'socket.io-client';
 
 import ChartLine from './components/ChartLine';
 
-//import PowerShell from './components/Powershell/index';
-import PowerShell from './components/PowerShell';
+import PowerShell from './components/Powershell/index';
+//import PowerShell from './components/PowerShell';
 
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
