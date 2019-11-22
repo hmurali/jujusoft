@@ -272,7 +272,7 @@ router.route('/computer/:computerid')
      * 
      * 
      * @apiSuccessExample {type} Success-Response:
-     * { }
+     * {}
      * 
      */
     .delete(computerservice.delete)
