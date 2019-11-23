@@ -24,7 +24,7 @@
 	left: 35%;
 	transform: translate(-50%, -50%);
 	color: whitesmoke;
-	font-size: 30px;
+	/* font-size: 30px; */
 	font-family: 'Courier New', Courier, monospace;
 
 	/* align-items: center;
@@ -36,6 +36,37 @@
 	left: 0;
 	top: 0;
 	z-index: 1; */
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.centered {
+		text-align: left;
+		font-size: 8px;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	.centered {
+		text-align: left;
+		font-size: 14px;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	.centered {
+		text-align: left;
+		font-size: 18px;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	.centered {
+		font-size: 30px;
+	}
 }
 
 /* Top left text */
