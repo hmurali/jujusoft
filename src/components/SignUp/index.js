@@ -21,10 +21,13 @@ export default function Signup() {
 					<input
 						type="text"
 						className="form-control"
-						id="exampleCompanyName"
-						placeholder="Company Name"
+						id="exampleFirstName"
+						placeholder="First Name"
 						required
 					/>
+				</div>
+				<div className="form-group">
+					<input type="text" className="form-control" id="exampleLastName" placeholder="Last Name" required />
 				</div>
 				<div className="form-group">
 					<input
@@ -38,18 +41,6 @@ export default function Signup() {
 					<small id="emailHelp" className="form-text text-muted">
 						We'll never share your email with anyone else.
 					</small>
-				</div>
-				<div className="form-group">
-					<input
-						type="tel"
-						className="form-control"
-						id="phone"
-						name="phone"
-						placeholder="Phone"
-						pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-						required
-					/>
-					<small>Format: 123-456-7890</small>
 				</div>
 				<div className="form-group">
 					<input
