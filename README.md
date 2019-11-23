@@ -7,12 +7,14 @@ We at Jujusoft are revolutionizing the computing world! Imagine a world where yo
 4. Juju Brady
 5. VIP/Juju master Diego
 ## Technologies used:
-Bootstrap
-React
-Powershell
-Chart.js
-Passport.js
-Heroku
-Mocha Chai
+1. Bootstrap  
+2. React  
+3. Powershell  
+4. Chart.js  
+5. Passport.js  
+6. Heroku  
+7. Mocha Chai  
+8. ES6  
+9. Bcrypt  
 ## Deployment
 Heroku - https://jujusoft.herokuapp.com/
