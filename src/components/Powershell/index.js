@@ -6,7 +6,6 @@ import * as axios from 'axios';
 
 const baseUrl = 'http://localhost:3001';
 
-
 // const commandMap =
 
 class PowerShell extends React.Component {
@@ -45,14 +44,13 @@ class PowerShell extends React.Component {
 	render() {
 		return (
 			<section>
-
 				<textarea
+					style={{ width: '100%' }}
 					id="command-to-send"
 					type="text"
 					onChange={this.onChange}
 					value={this.props.command || this.state.command}
 				/>
-
 
 				<button id="send-command" onClick={this.sendCommand}>
 					send command

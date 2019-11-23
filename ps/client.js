@@ -2,7 +2,7 @@ console.log('Running agent');
 const io = require('socket.io-client');
 const { run, start } = require('./ps');
 // const socket = io('http://localhost:3000');
-const socket = io('http://172.20.2:3001');
+const socket = io('http://172.20.10.2:3000');
 // const socket = io('http://169.254.211.123:3000')
 socket.on('command', (command) => {
 	console.log('running', command);

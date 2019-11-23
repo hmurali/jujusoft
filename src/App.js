@@ -5,12 +5,12 @@ import * as io from 'socket.io-client';
 
 import ChartLine from './components/ChartLine';
 
-import PowerShell from './components/Powershell/index';
-//import PowerShell from './components/PowerShell';
+//import PowerShell from './components/Powershell/index';
+import PowerShell from './components/PowerShell';
 
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import Overview from './components/Overview';
 import Results from './components/Results';
 import Signup from './components/SignUp';
@@ -19,7 +19,6 @@ import Login from './components/Login';
 // const baseUrl = 'http://172.20.10.2:3000'
 const baseUrl = 'http://localhost:3001';
 const commandMap = {
-
 	'get-process':
 		'Get-Process | Sort-Object -Descending CPU | Select-Object -First 40 -Property Id, Handles, Handle, Name, Description, CPU, NPM, PM, SI, VM, WS, Size, Path | ConvertTo-Json -Compress',
 	'get-memory': 'Get-WmiObject -class "Win32_PhysicalMemoryArray"',
@@ -107,10 +106,15 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="App">
-				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<div className="container-fluid">
+				<nav className="navbar navbar-expand-lg navbar-light">
 					<a href="/home">
-						<img src="./img/logo.png" alt="HTML5 Icon" style={{ width: '300px', height: '50px' }} />
+						<img
+							className="img-fluid"
+							src="./img/logo.png"
+							alt="HTML5 Icon"
+							style={{ width: '300px', height: '50px' }}
+						/>
 					</a>
 					<button
 						className="navbar-toggler"
@@ -138,7 +142,6 @@ class App extends React.Component {
 									Processes
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
 									<span
 										className="dropdown-item"
 										data-command="get-process"
@@ -176,7 +179,6 @@ class App extends React.Component {
 										data-command="get-gpu"
 										onClick={this.handleCommandChange}
 									>
-
 										GPU
 									</span>
 								</div>
@@ -194,7 +196,6 @@ class App extends React.Component {
 									WiFi and Network Data
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
 									<span
 										className="dropdown-item"
 										data-command="get-dns"
@@ -209,7 +210,6 @@ class App extends React.Component {
 										data-command="get-network"
 										onClick={this.handleCommandChange}
 									>
-
 										Current Network
 									</span>
 								</div>
@@ -228,7 +228,6 @@ class App extends React.Component {
 									Start or Stop Common Processes
 								</a>
 								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
 									<span
 										className="dropdown-item"
 										data-command="get-chrome"
@@ -277,7 +276,6 @@ class App extends React.Component {
 									>
 										Network
 									</span>
-
 								</div>
 							</li>
 
@@ -312,15 +310,19 @@ class App extends React.Component {
 						</ul>
 					</div>
 					<button type="button" className="btn btn-outline-secondary">
-						<Link to="/signup">Sign Up</Link>
+						<NavLink style={{ textDecoration: 'none', color: '#000' }} to="/signup">
+							Sign Up
+						</NavLink>
+						{/* <Link to="/signup">Sign Up</Link> */}
 					</button>
 					<button type="button" className="btn btn-outline-secondary">
-						Login
+						<NavLink style={{ textDecoration: 'none', color: '#000' }} to="/login">
+							Login
+						</NavLink>
 					</button>
 				</nav>
 				<Jumbotron />
 				<Switch>
-
 					<Route path="/" component={Overview} exact />
 					<Route path="/results" component={Results} exact>
 						<PowerShell selectedComputers={this.state.computerNames} command={this.state.command} />
@@ -344,12 +346,15 @@ class App extends React.Component {
 							<ChartLine data={this.state.powerShellResponse} />
 						</div>
 
-						<textarea value={JSON.stringify(this.state.powerShellResponse, undefined, 2)} rows={50} />
+						<textarea
+							style={{ width: '100%' }}
+							value={JSON.stringify(this.state.powerShellResponse, undefined, 2)}
+							rows={50}
+						/>
 					</Route>
 					<Route path="/signup" component={Signup} exact />
 
 					<Route path="/login" component={Login} exact />
-
 				</Switch>
 
 				<Footer />

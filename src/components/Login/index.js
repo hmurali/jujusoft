@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function Login() {
 	return (
@@ -6,7 +7,10 @@ export default function Login() {
 			<div className="container_text">
 				<h4> Login </h4>
 				<small className="text-muted">
-					Not Signed Up? <a href="signup.html">Sign Up</a>
+					Not Signed Up? {' '}
+					<NavLink style={{ textDecoration: 'none', color: '#0258AF' }} to="/signup">
+						Sign Up
+					</NavLink>
 				</small>
 			</div>
 			<br />
@@ -36,7 +40,9 @@ export default function Login() {
 				</div>
 
 				<button type="submit" className="btn btn-primary">
-					Submit
+					<NavLink style={{ textDecoration: 'none', color: '#fff' }} to="/results">
+						Submit
+					</NavLink>
 				</button>
 			</form>
 		</div>
