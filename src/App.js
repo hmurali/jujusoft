@@ -106,10 +106,15 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="App">
+			<div className="container-fluid">
 				<nav className="navbar navbar-expand-lg navbar-light">
 					<a href="/home">
-						<img src="./img/logo.png" alt="HTML5 Icon" style={{ width: '300px', height: '50px' }} />
+						<img
+							className="img-fluid"
+							src="./img/logo.png"
+							alt="HTML5 Icon"
+							style={{ width: '300px', height: '50px' }}
+						/>
 					</a>
 					<button
 						className="navbar-toggler"
