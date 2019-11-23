@@ -22,5 +22,8 @@ We at Jujusoft are revolutionizing the computing world! Imagine a world where yo
 13. Express  
 14. Trello  
 15. CORS - Cross-origin resource sharing  
+16. Axios  
+17. React Router DOM  
+18. Socket.io
 ## Deployment
 Heroku - https://jujusoft.herokuapp.com/
