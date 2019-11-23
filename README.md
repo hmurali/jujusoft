@@ -16,5 +16,10 @@ We at Jujusoft are revolutionizing the computing world! Imagine a world where yo
 7. Mocha Chai  
 8. ES6  
 9. Bcrypt  
+10. MongoDB  
+11. Mongoose  
+12. NodeJS  
+13. Express  
+14. Trello  
 ## Deployment
 Heroku - https://jujusoft.herokuapp.com/
